@@ -160,6 +160,8 @@ public sealed class ManifestPublishingContext(DistributedApplicationExecutionCon
         await WriteCommandLineArgumentsAsync(project).ConfigureAwait(false);
 
         await WriteEnvironmentVariablesAsync(project).ConfigureAwait(false);
+
+        WriteHostingMetadata(project);
         WriteBindings(project);
     }
 
@@ -645,5 +647,20 @@ public sealed class ManifestPublishingContext(DistributedApplicationExecutionCon
         }
 
         _referencedResources.Clear();
+    }
+
+    private void WriteHostingMetadata(ProjectResource project)
+    {
+        if (project.TryGetAnnotationsOfType<ProjectHostingAnnotation>(out var hostingAnnotations))
+        {
+            Writer.WriteStartObject("hosting");
+
+            foreach (var annotation in hostingAnnotations)
+            {
+                Writer.WriteString(annotation.Key, annotation.Value);
+            }
+
+            Writer.WriteEndObject();
+        }
     }
 }

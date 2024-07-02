@@ -1,4 +1,8 @@
 #nullable enable
+Aspire.Hosting.ApplicationModel.ProjectHostingAnnotation
+Aspire.Hosting.ApplicationModel.ProjectHostingAnnotation.Key.get -> string!
+Aspire.Hosting.ApplicationModel.ProjectHostingAnnotation.ProjectHostingAnnotation(string! key, string! value) -> void
+Aspire.Hosting.ApplicationModel.ProjectHostingAnnotation.Value.get -> string!
 Aspire.Hosting.ApplicationModel.ResourceNotificationService.ResourceNotificationService(Microsoft.Extensions.Logging.ILogger<Aspire.Hosting.ApplicationModel.ResourceNotificationService!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostApplicationLifetime) -> void
 Aspire.Hosting.ApplicationModel.ResourceNotificationService.WaitForResourceAsync(string! resourceName, string? targetState = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 Aspire.Hosting.ApplicationModel.ResourceNotificationService.WaitForResourceAsync(string! resourceName, System.Collections.Generic.IEnumerable<string!>! targetStates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
